@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\HARDWARE\DHT11;..\HARDWARE\LED;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\GM_ADC;..\HARDWARE\MFRC522;..\HARDWARE\MyOLED;..\SYSTEM\adc;..\HARDWARE\RFID;..\HARDWARE\DHT11;..\HARDWARE\HUNMAN;..\HARDWARE\WIFI;..\SYSTEM\time</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\HARDWARE\DHT11;..\HARDWARE\LED;..\STM32F10x_FWLib\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\GM_ADC;..\HARDWARE\MFRC522;..\HARDWARE\MyOLED;..\SYSTEM\adc;..\HARDWARE\RFID;..\HARDWARE\DHT11;..\HARDWARE\HUNMAN;..\HARDWARE\WIFI;..\SYSTEM\time;..\HARDWARE\PWM;..\HARDWARE\KEY;..\HARDWARE\buzzer</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -436,6 +436,21 @@
               <FileName>wifi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\WIFI\wifi.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\PWM\pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\KEY\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\buzzer\buzzer.c</FilePath>
             </File>
           </Files>
         </Group>

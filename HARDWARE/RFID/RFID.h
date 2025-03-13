@@ -12,8 +12,8 @@
 #define VALID_UID_COUNT (sizeof(validUIDs) / sizeof(validUIDs[0]))
 
 //
-#define DOOR_LOCK_PIN GPIO_Pin_0
-#define DOOR_LOCK_PORT GPIOA
+#define DOOR_LOCK_PIN GPIO_Pin_9
+#define DOOR_LOCK_PORT GPIOB
 
 // 合法卡片提示 LED 引脚，假设使用 PD1
 #define VALID_LED_PIN GPIO_Pin_2

@@ -4,7 +4,10 @@ extern uint8_t RFID_Index;
 
 const unsigned char validUIDs[][4] = {
     {0x94, 0xFF, 0x5B, 0x80},
-    {0x8D, 0xBF, 0x67, 0x80}
+    {0x8D, 0xBF, 0x67, 0x80},
+    {0xA3, 0x2B, 0x59, 0xD6},
+    {0x07, 0xA2, 0x7E, 0xAA},
+    {0xC3, 0xA1, 0x97, 0x98}
 };
 
 
@@ -30,13 +33,13 @@ void OpenDoor(void) {
     GPIO_ResetBits(DOOR_LOCK_PORT, DOOR_LOCK_PIN); // 打开门锁
     GPIO_ResetBits(VALID_LED_PORT, VALID_LED_PIN); // 点亮合法卡片提示 LED
     delay_ms(3000); // 开门保持 3 秒
-    //GPIO_ResetBits(DOOR_LOCK_PORT, DOOR_LOCK_PIN); // 关闭门锁
-    //GPIO_ResetBits(VALID_LED_PORT, VALID_LED_PIN); // 熄灭合法卡片提示 LED
+    GPIO_SetBits(DOOR_LOCK_PORT, DOOR_LOCK_PIN); // 关闭门锁
+    GPIO_SetBits(VALID_LED_PORT, VALID_LED_PIN); // 熄灭合法卡片提示 LED
 }
 
 // 非法卡片提示
 void IllegalCardAlert(void) {
-    GPIO_ResetBits(INVALID_LED_PORT, INVALID_LED_PIN); // 点亮非法卡片提示 LED
+//    GPIO_ResetBits(INVALID_LED_PORT, INVALID_LED_PIN); // 点亮非法卡片提示 LED
     delay_ms(3000);
    // GPIO_ResetBits(INVALID_LED_PORT, INVALID_LED_PIN); // 熄灭非法卡片提示 LED
 }
@@ -60,7 +63,7 @@ void DoorLockAndLED_Init(void) {
 //    GPIO_ResetBits(VALID_LED_PORT, VALID_LED_PIN);
 
     // 非法卡片提示 LED 引脚初始化
-    GPIO_InitStructure.GPIO_Pin = INVALID_LED_PIN;
+//    GPIO_InitStructure.GPIO_Pin = INVALID_LED_PIN;
     GPIO_Init(INVALID_LED_PORT, &GPIO_InitStructure);
     //GPIO_ResetBits(INVALID_LED_PORT, INVALID_LED_PIN);
 }
@@ -79,7 +82,7 @@ uint8_t RFID(void)
 
     GPIO_SetBits(DOOR_LOCK_PORT, DOOR_LOCK_PIN);
     GPIO_SetBits(VALID_LED_PORT, VALID_LED_PIN); // 熄灭合法卡片提示 LED
-    GPIO_SetBits(INVALID_LED_PORT, INVALID_LED_PIN); // 熄灭非法卡片提示 LED
+//    GPIO_SetBits(INVALID_LED_PORT, INVALID_LED_PIN); // 熄灭非法卡片提示 LED
 
     status = MFRC522_Request(PICC_REQALL, buf); // 寻卡
     if (status != MI_OK)
@@ -148,7 +151,7 @@ uint8_t RFID_last(void)
           
     GPIO_SetBits(DOOR_LOCK_PORT, DOOR_LOCK_PIN);
     GPIO_SetBits(VALID_LED_PORT, VALID_LED_PIN); // 熄灭合法卡片提示 LED
-    GPIO_SetBits(INVALID_LED_PORT, INVALID_LED_PIN); // 熄灭非法卡片提示 LED
+//    GPIO_SetBits(INVALID_LED_PORT, INVALID_LED_PIN); // 熄灭非法卡片提示 LED
     
     
 	status = MFRC522_Request(PICC_REQALL, buf);//寻卡
@@ -209,7 +212,7 @@ void RFID_again(void)
     {      
     GPIO_SetBits(DOOR_LOCK_PORT, DOOR_LOCK_PIN);
     GPIO_SetBits(VALID_LED_PORT, VALID_LED_PIN); // 熄陌蹚专擗片汀示 LED
-    GPIO_SetBits(INVALID_LED_PORT, INVALID_LED_PIN); // 熄陌貒专擗片汀示 LED
+//    GPIO_SetBits(INVALID_LED_PORT, INVALID_LED_PIN); // 熄陌貒专擗片汀示 LED
 	status = MFRC522_Request(PICC_REQALL, buf);//寻擗
 	if (status != MI_OK)
 	{    

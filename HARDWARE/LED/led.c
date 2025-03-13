@@ -14,7 +14,6 @@ void LED_Init(void)
 	GPIO_Init(LED_GPIO_PROT, &GPIO_InitStructure);
 	//GPIO_ResetBits(LED_GPIO_PROT, LED_GPIO_PIN);
 }
-
 void LED_Toggle(void)
 {
 	GPIO_WriteBit(LED_GPIO_PROT, LED_GPIO_PIN, (BitAction)((1-GPIO_ReadOutputDataBit(LED_GPIO_PROT, LED_GPIO_PIN))));//ledµçÆ½·­×ª
